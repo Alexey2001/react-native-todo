@@ -19,11 +19,6 @@ export const MainScreen = ({addTodo, todos, removeTodo, openTodo}) => {
       content =(
          <View style={styles.imgWrap}>
         <Image style={styles.image} source={require('../../assets/no-items.png.png')}/>
-        {/* <Image 
-        style={styles.image} 
-        source={{
-          uri: 'http://samuraigeeks.net/wp-content/uploads/2019/06/373-3738691_react-native-svg-transformer-allows-you-import-svg.jpg'
-        }}/> */}
 
       </View>
 
