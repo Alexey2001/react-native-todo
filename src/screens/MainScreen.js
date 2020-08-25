@@ -23,35 +23,36 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
     }
   })
 
-
   let content = (
     <View style={{ width: deviceWidth }}>
       <FlatList
         keyExtractor={item => item.id.toString()}
         data={todos}
-      renderItem={({item}) => (
-         <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />      
+        renderItem={({ item }) => (
+          <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />
         )}
       />
+    </View>
+  )
+
+  if (todos.length === 0) {
+    content = (
+      <View style={styles.imgWrap}>
+        <Image
+          style={styles.image}
+          source={require('../../assets/no-items.png.png')}
+        />
       </View>
     )
+  }
 
-    if(todos.length === 0) {
-      content =(
-         <View style={styles.imgWrap}>
-        <Image style={styles.image} source={require('../../assets/no-items.png.png')}/>
+  return (
+    <View>
+      <AddTodo onSubmit={addTodo} />
 
-      </View>
-
-      )
-    }
-
-    return (
-     <View>
-        <AddTodo onSubmit={addTodo}/>
-        {content}
-        </View>
-    )
+      {content}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
