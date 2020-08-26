@@ -39,17 +39,15 @@ export const MainScreen = () => {
   })
 
   if (loading) {
-    return <AppLoader/>
+    return <AppLoader />
   }
 
   if (error) {
-    return(
-     <View style={styles.center}>
-      <AppText style={styles.error}>
-        {error}
-      </AppText>
-      <AppButton onPress={loadTodos}>Повторить</AppButton>
-    </View>
+    return (
+      <View style={styles.center}>
+        <AppText style={styles.error}>{error}</AppText>
+        <AppButton onPress={loadTodos}>Повторить</AppButton>
+      </View>
     )
   }
 
